@@ -45,6 +45,7 @@ ALLOWED_RESPONSE_FORMAT_TYPES = {
     "json",
     "base64str",
     "data",
+    "filePath",
 }
 
 ALLOWED_SOURCE_TYPES = {"text"}

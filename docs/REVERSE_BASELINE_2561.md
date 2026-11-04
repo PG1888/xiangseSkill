@@ -318,14 +318,14 @@ strings "Tg@TrollstoreKios.app/Tg@TrollstoreKios" | rg "functionName\(config|boo
 - `removeHtml:fromKey:userInfo:` / `removeHtml:regex:cacheRegex:` / `defRemoveHtmlRegex` — 字段 HTML 清洗（对应 `moreKeys.removeHtmlKeys`）
 - `formatCallBackResponse:config:userInfo:` / `checkParserResponse:` — 响应格式化与校验
 
-### 10.4 BookSourceModelManager 模板字典（静态确认，值待动态）
+### 10.4 BookSourceModelManager 模板字典（已静态解包闭环）
 
 - `dicBaseModelTemplateDom` / `dicBaseModelTemplateJS` — 新建书源基础模板（DOM/JS 两套）
 - `dicBookWorldTemplateDom` / `dicBookWorldTemplateJS` — 分类模板
 - `dicShudanListTemplateDom` / `dicShudanListTemplateJS` — 书单模板
 - `dicDomModelKeyInfo` / `dicDomModelEditableKeys:` — DOM 字段元数据/可编辑键
 - `dicSourceModelKeyInfo` / `dicSourceModelEditableKeys` / `dicSourceModelSyncConfig` — 源级字段元数据
-- 字典值不可静态读取，需 Frida 动态 dump（`tools/scripts/frida_dommodel_trace.js` 已就绪）
+- **静态解包路径**：`-[BookSourceModelManager init]` (`0x1000f63b8`) 从 `-[AppConfig baseConfig]` (`0x10004f210`) 读取这些字典，而 `-[AppConfig baseConfig]` (`0x10004f360`) 直接加载包内伪装成 PNG 的 XXTEA 密文文件 `dir_res/dir_readview/web_reload@2x.png` 并用 `LCViewLayerDraw` 默认密钥解密为 JSON。完整明文已解包归档至 [`tools/references/official-baseConfig-2.56.1.json`](../tools/references/official-baseConfig-2.56.1.json)（共 1,594 行）。
 
 ### 10.5 官方导出样本统计结论（`tools/verification/mac_live_sourceModelList.json`，6 源）
 
@@ -338,16 +338,20 @@ strings "Tg@TrollstoreKios.app/Tg@TrollstoreKios" | rg "functionName\(config|boo
 - **`miniAppVersion`**：官方 6/6 均带（如 `"2.53.2"`，历史版本源在 2.56.1 兼容）
 - 特殊动作（书评/书单/相关词/热搜）仅在需要时配置，可省略
 
-### 10.6 剩余知识缺口（必须动态验证）
+### 10.6 剩余知识缺口（已于 2026-10-26 官方包全量指令级反汇编中 100% 闭环）
 
-| 缺口 | 方法 |
-|---|---|
-| `dicDomModelKeyInfo`/模板字典值 | Frida dump `BookSourceModelManager` 实例属性 |
-| `encryptType1` 具体算法参数（AES 模式/填充） | Frida 观测 `dataByAesDecryptWith...` 入参 |
-| gbk 参数编码实现细节 | 反汇编 `getCustomFormatHttpParams:paramsEncode:post:` |
-| 缓存键格式 | 反汇编/动态观测 `getCacheKeyByConfig:requestInfo:` |
-| `divisionRule` 字段名与格式 | 官方 App 编辑面板实测 |
-| `params.nativeTool` 官方可用性 | 官方 App JS 上下文实测 |
+完整白皮书详见：[`docs/STANDARREADER_2561_KERNEL_SPEC.md`](STANDARREADER_2561_KERNEL_SPEC.md)。
+
+| 原缺口项 | 官方未修改包 `StandarReader.app` (2.56.1) 二进制地址 | 指令级逆向实锤结论 |
+|---|---|---|
+| `dicDomModelKeyInfo`/模板字典值 | `-[AppConfig baseConfig]` (`0x10004f210` – `0x10004f3e4`)<br/>`-[BookSourceModelManager init]` (`0x1000f63b8`) | `-[AppConfig baseConfig]` 读取伪装成图片的 `dir_res/dir_readview/web_reload@2x.png`，通过 `LCViewLayerDraw` 默认密钥 XXTEA 解密出完整 JSON（已保存至 [`tools/references/official-baseConfig-2.56.1.json`](../tools/references/official-baseConfig-2.56.1.json)），内含 `sourceModelTemplate`、`domModelKeyInfo`、`domModelEditableKeys`、`sourceModelKeyInfo`、`sourceModelSyncConfig`；同时包内 `lpnet_modelInfo` 提供 `LPNetWork` 级模板与元数据 |
+| `encryptType1` 具体算法参数 | `+[LCViewLayerDraw sharedInstance]` (`0x100101d84`)<br/>`encrypt` (`0x100101e54`) / `decrypt` (`0x1001023d4`) | 与 `.xbs` 容器共用同一套 **标准 XXTEA 算法**（`DELTA = 0x9e3779b9`，轮数 `6 + 52/n`，末尾 4 字节小端原始长度）。默认密钥取自 `@"凼褆滿金溡候孞柦地橷旳"` UTF-8 前 **16 字节**（`e5 87 bc e8 a4 86 e6 bb bf e9 87 91 e6 ba a1 e5`） |
+| `LCJSTool` AES 解密算法参数 | `-[LCJSTool dataByAesDecryptWithData:withKey:withIv:]` (`0x1000c0c68`) | 在 `0x1000c0dd8` 调用 `_CCCrypt(kCCDecrypt=1, kCCAlgorithmAES128=0, kCCOptionPKCS7Padding=1, ...)`，即 **AES-CBC + PKCS7Padding**（`key`/`iv` 按 UTF-8 编码，支持 128/192/256 位密钥），返回 `NSData`（配合 `stringByObject` 转文本） |
+| gbk 参数编码实现细节 | `DomModelParser` (`0x1000c9150`)<br/>`LPNetWork` (`0x1000f2be0`) | `2147485234` (`0x80000632`) 经 `CFStringConvertNSStringEncodingToEncoding` 转为 `kCFStringEncodingGB_18030_2000 (0x0632)`：在模板替换 `%@keyWord`/`%@filter` 时调用 `CFURLCreateStringByAddingPercentEscapes`；在请求构造时同步设置 `AFHTTPRequestSerializer.stringEncoding` |
+| 缓存键格式 | `-[LPNetWork getCacheKeyByConfig:requestInfo:]` (`0x1000f1ac0`) | 若 `requestInfo[@"cacheKey"]` 非空则对其取 32 位小写 MD5；否则对 `[NSString stringWithFormat:@"%@%@", fullUrl, httpParams ?: @""]` 取 32 位小写 MD5 |
+| `divisionRule:withSplit:` 与双轨 JSONPath | `-[DomModelParser divisionRule:withSplit:]` (`0x1000ca6d4`)<br/>`-[DomModelParser valueForKey:withNode:...]` (`0x1000cbdac`) | 1. 含 `"||"` 时只按 `"||"` 切分；不含 `"||"` 但含 `"|"` 且同时含 `"@js:"`/`"@replace:"`/`"%@result"` 时按 `"|"` 切分；`@path:` 为短路或（OR）语义，`@replace:`/`@js:` 为串行管道（Pipeline）语义。<br/>2. **双轨 JSONPath**：以 `"$"` 开头走 `SMJJSONPath`（**0-based**）；不以 `"$"` 开头走内置 `"/"` 切分引擎（**正数下标 `a/b[1]` 为 1-based**，负数下标为 `count + idx`，`0` 或越界回退 `firstObject`） |
+| `params.nativeTool` 官方可用性 | `-[LPNetWork customParserParams:]` (`0x1000f181c` – `0x1000f1878`) | **官方未修改版 `StandarReader.app` 原生无条件注入** `parserParams[@"nativeTool"] = [LCJSTool sharedInstance]`，暴露全部 23 个 `LCJSToolExports` 方法 |
+| `upgradeModel211031:` 自动迁移与 `validConfig` | `upgradeModel211031:` (`0x1000f7ae8`)<br/>`-[ConfigLPNetModelConDom onBackEvent]` (`0x1000bb28c`) | 1. 当 `parserType=="DOM"` 且 `miniAppVersion < "2.52.0"` 时，升级至 `"2.53.2"`，替换 `%@js`→`@js:`、`%@replace`→`@replace:`，映射 `ruleList`→`list` 等 5 键，删除 `bookDetail` 的 `bookName`/`author`，合并 `chapterContent` 的 `list+content`。<br/>2. `validConfig` 仅由编辑器退出 Action 页时根据 27 个有效键是否非空写入 `""`，运行时解析器完全不读取 |
 
 ### 8.2 解析类与调用链（静态符号）
 

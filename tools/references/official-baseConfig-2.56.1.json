@@ -1,0 +1,1594 @@
+{
+  "sourceModelKeyInfo_inSynchronize": {
+    "password": {
+      "kv_title": "密码",
+      "kv_placeHolder": "密码，尽量不用吧"
+    },
+    "shupingHome": {
+      "kv_title": "广场",
+      "kv_valueType": "NSDictionary"
+    },
+    "openWithSafariReader": {
+      "cf_params": [
+        0
+      ],
+      "cf_selectorname": "openWithReader:",
+      "kv_title": "使用Safari阅读器打开"
+    },
+    "miniAppVersion": {
+      "kv_title": "miniAppVersion",
+      "kv_placeHolder": "miniAppVersion"
+    },
+    "chapterList": {
+      "kv_title": "目录",
+      "kv_valueType": "NSDictionary"
+    },
+    "shupingList": {
+      "kv_title": "书本评论",
+      "kv_valueType": "NSDictionary"
+    },
+    "openWithCustomReader": {
+      "cf_params": [
+        1
+      ],
+      "cf_selectorname": "openWithReader:",
+      "kv_title": "使用自定义阅读器打开"
+    },
+    "searchShudan": {
+      "kv_title": "书单搜索",
+      "kv_valueType": "NSDictionary"
+    },
+    "weight": {
+      "kv_title": "权重",
+      "kv_placeHolder": "数值越大优先级越高，建议1到99，<=0时不可用",
+      "kv_valueMax": "9999"
+    },
+    "暂不使用默认值": "",
+    "relatedWord": {
+      "kv_title": "热词",
+      "kv_valueType": "NSDictionary"
+    },
+    "enable": {
+      "kv_title": "是否启用-不在列表展示"
+    },
+    "sourceName": {
+      "kv_title": "名称",
+      "kv_placeHolder": "项目名称必须具有唯一性"
+    },
+    "sourceType": {
+      "kv_title": "类型",
+      "kv_valueList": [
+        {
+          "kv_title": "文本",
+          "kv_value": "text"
+        },
+        {
+          "kv_title": "图片",
+          "kv_value": "comic"
+        },
+        {
+          "kv_title": "音频",
+          "kv_value": "audio"
+        },
+        {
+          "kv_title": "视频",
+          "kv_value": "video"
+        }
+      ]
+    },
+    "moreKeys": {
+      "kv_title": "moreKeys",
+      "kv_placeHolder": "未使用",
+      "kv_valueType": "NSDictionary"
+    },
+    "sourceUrl": {
+      "kv_title": "host",
+      "kv_placeHolder": "网站首页必须具有唯一性，网址格式\n所有url都会检测是否包含host，如果没有，将使用当前host，也可以通过config.host获取",
+      "kv_valueType": "URL"
+    },
+    "httpHeaders": {
+      "kv_title": "httpHeaders",
+      "kv_placeHolder": "http请求头",
+      "kv_valueType": "NSDictionary"
+    },
+    "shudanDetail": {
+      "kv_title": "书单详情",
+      "kv_valueType": "NSDictionary"
+    },
+    "lastModifyTime": {
+      "kv_title": "更新时间-不展示"
+    },
+    "searchBook": {
+      "kv_title": "搜索",
+      "kv_valueType": "NSDictionary"
+    },
+    "chapterContent": {
+      "kv_title": "正文",
+      "kv_valueType": "NSDictionary"
+    },
+    "help": {
+      "kv_maxLength": "100",
+      "kv_placeHolder": "仅当前页可见",
+      "kv_title": "help"
+    },
+    "desc": {
+      "kv_maxLength": "20",
+      "kv_placeHolder": "20个字符以内",
+      "kv_title": "备注"
+    },
+    "shudanList": {
+      "kv_title": "书单分组",
+      "kv_valueType": "NSDictionary"
+    },
+    "authorId": {
+      "kv_title": "站点作者-不展示"
+    },
+    "bookDetail": {
+      "kv_title": "详情",
+      "kv_valueType": "NSDictionary"
+    },
+    "bookWorld": {
+      "kv_title": "分类",
+      "kv_valueType": "NSDictionary"
+    }
+  },
+  "sourceModelEditableKeys_inSynchronize": [
+    {
+      "items": [
+        "sourceName",
+        "sourceUrl",
+        "weight",
+        "sourceType",
+        "desc",
+        "httpHeaders"
+      ],
+      "title": "基础信息"
+    },
+    {
+      "items": [
+        "searchBook",
+        "bookWorld"
+      ],
+      "title": "索引配置"
+    },
+    {
+      "items": [
+        "chapterList",
+        "chapterContent"
+      ],
+      "title": "内容配置"
+    },
+    {
+      "items": [
+        "openWithSafariReader",
+        "openWithCustomReader"
+      ],
+      "title": "应用"
+    }
+  ],
+  "sourceModelKeyInfo": {
+    "password": {
+      "kv_title": "密码",
+      "kv_placeHolder": "站点密码，尽量不用吧"
+    },
+    "shupingHome": {
+      "kv_title": "广场",
+      "kv_valueType": "NSDictionary"
+    },
+    "chapterList": {
+      "kv_title": "章节列表",
+      "kv_valueType": "NSDictionary"
+    },
+    "miniAppVersion": {
+      "kv_title": "miniAppVersion",
+      "kv_placeHolder": "miniAppVersion"
+    },
+    "loginUrl": {
+      "kv_title": "登录url",
+      "kv_placeHolder": "登录url",
+      "kv_valueType": "URL"
+    },
+    "shupingList": {
+      "kv_title": "书本评论",
+      "kv_valueType": "NSDictionary"
+    },
+    "weight": {
+      "kv_title": "权重",
+      "kv_placeHolder": "数值越大优先级越高，建议1到9999，<=0时不可用\n新版本已增加权重限制",
+      "kv_valueMax": "9999"
+    },
+    "searchShudan": {
+      "kv_title": "书单搜索",
+      "kv_valueType": "NSDictionary"
+    },
+    "暂不使用默认值": "",
+    "relatedWord": {
+      "kv_title": "热词",
+      "kv_valueType": "NSDictionary"
+    },
+    "enable": {
+      "kv_title": "是否启用-不在列表展示"
+    },
+    "sourceName": {
+      "kv_title": "名称",
+      "kv_placeHolder": "站点名称必须具有唯一性"
+    },
+    "sourceType": {
+      "kv_title": "类型",
+      "kv_valueList": [
+        {
+          "kv_title": "文本/小说",
+          "kv_value": "text"
+        },
+        {
+          "kv_title": "图片/漫画/壁纸",
+          "kv_value": "comic"
+        },
+        {
+          "kv_title": "音频/音乐/听书",
+          "kv_value": "audio"
+        },
+        {
+          "kv_title": "视频/电影/电视剧",
+          "kv_value": "video"
+        }
+      ]
+    },
+    "moreKeys": {
+      "kv_title": "moreKeys",
+      "kv_placeHolder": "未使用",
+      "kv_valueType": "NSDictionary"
+    },
+    "sourceUrl": {
+      "kv_title": "host",
+      "kv_placeHolder": "站点首页必须具有唯一性，网址格式\n所有url都会检测是否包含host，如果没有，将使用当前host，也可以通过config.host获取",
+      "kv_valueType": "URL"
+    },
+    "httpHeaders": {
+      "kv_title": "httpHeaders",
+      "kv_placeHolder": "全局http请求头，JSON格式，可通过config.httpHeaders获取，示例：\n{\"User-Agent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36\", \"Referer\":\"https://www.baidu.com\"}\n\n\n章节内容配置-正文中的图片/音频/视频等资源需动态设置，示例：\n//a/@href || @js:\nreturn {'url':result, 'httpHeaders':{\"User-Agent\":\"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.75 Safari/537.36\", \"Referer\":\"https://www.baidu.com\"}};",
+      "kv_valueType": "NSDictionary"
+    },
+    "shudanDetail": {
+      "kv_title": "书单详情",
+      "kv_valueType": "NSDictionary"
+    },
+    "lastModifyTime": {
+      "kv_title": "更新时间-不展示"
+    },
+    "searchBook": {
+      "kv_title": "书籍搜索",
+      "kv_valueType": "NSDictionary"
+    },
+    "chapterContent": {
+      "kv_title": "章节内容",
+      "kv_valueType": "NSDictionary"
+    },
+    "help": {
+      "kv_maxLength": "100",
+      "kv_placeHolder": "仅当前页可见",
+      "kv_title": "help"
+    },
+    "desc": {
+      "kv_maxLength": "30",
+      "kv_placeHolder": "20个字符以内",
+      "kv_title": "备注"
+    },
+    "shudanList": {
+      "kv_title": "书单分组",
+      "kv_valueType": "NSDictionary"
+    },
+    "authorId": {
+      "kv_title": "站点作者-不展示"
+    },
+    "bookDetail": {
+      "kv_title": "书籍详情",
+      "kv_valueType": "NSDictionary"
+    },
+    "bookWorld": {
+      "kv_title": "书籍分类",
+      "kv_valueType": "NSDictionary"
+    }
+  },
+  "domModelEditableKeys_inSynchronize": {
+    "searchBook": [
+      {
+        "items": [
+          "requestInfo"
+        ],
+        "title": "请求信息"
+      },
+      {
+        "items": [
+          "list",
+          "bookName",
+          "author",
+          "detailUrl"
+        ],
+        "title": "响应规则"
+      },
+      {
+        "items": [
+          "requestParamsEncode",
+          "responseEncode",
+          "responseFormatType",
+          "success",
+          "JSParser",
+          "moreKeys"
+        ],
+        "title": "更多配置"
+      },
+      {
+        "items": [
+          "testConfig",
+          "testRegex"
+        ],
+        "title": "请求数据"
+      }
+    ],
+    "chapterContent": [
+      {
+        "items": [
+          "requestInfo"
+        ],
+        "title": "请求信息"
+      },
+      {
+        "items": [
+          "content",
+          "nextPageUrl"
+        ],
+        "title": "响应规则"
+      },
+      {
+        "items": [
+          "requestParamsEncode",
+          "responseEncode",
+          "responseFormatType",
+          "JSParser",
+          "moreKeys"
+        ],
+        "title": "更多配置"
+      },
+      {
+        "items": [
+          "testConfig",
+          "testRegex"
+        ],
+        "title": "测试"
+      }
+    ],
+    "chapterList": [
+      {
+        "items": [
+          "requestInfo"
+        ],
+        "title": "请求信息"
+      },
+      {
+        "items": [
+          "list",
+          "title",
+          "url",
+          "nextPageUrl"
+        ],
+        "title": "响应规则"
+      },
+      {
+        "items": [
+          "requestParamsEncode",
+          "responseEncode",
+          "responseFormatType",
+          "JSParser",
+          "moreKeys"
+        ],
+        "title": "更多配置"
+      },
+      {
+        "items": [
+          "testConfig",
+          "testRegex"
+        ],
+        "title": "测试"
+      }
+    ],
+    "bookWorld": [
+      {
+        "items": [
+          "requestInfo"
+        ],
+        "title": "请求信息"
+      },
+      {
+        "items": [
+          "list",
+          "bookName",
+          "author",
+          "detailUrl"
+        ],
+        "title": "响应规则"
+      },
+      {
+        "items": [
+          "requestParamsEncode",
+          "responseEncode",
+          "responseFormatType",
+          "JSParser",
+          "moreKeys"
+        ],
+        "title": "更多配置"
+      },
+      {
+        "items": [
+          "testConfig",
+          "testRegex"
+        ],
+        "title": "请求数据"
+      }
+    ]
+  },
+  "sourceModelTemplate": {
+    "baseModelTemplateDOM": {
+      "chapterContent": {
+        "actionID": "chapterContent",
+        "parserID": "DOM"
+      },
+      "enable": "1",
+      "shupingList": {
+        "actionID": "shupingList",
+        "parserID": "DOM"
+      },
+      "bookDetail": {
+        "actionID": "bookDetail",
+        "parserID": "DOM"
+      },
+      "shudanList": {},
+      "bookWorld": {},
+      "relatedWord": {
+        "actionID": "relatedWord",
+        "parserID": "DOM"
+      },
+      "miniAppVersion": "2.53.2",
+      "shudanDetail": {
+        "actionID": "shudanDetail",
+        "parserID": "DOM"
+      },
+      "shupingHome": {
+        "actionID": "shupingHome",
+        "parserID": "DOM"
+      },
+      "searchShudan": {
+        "actionID": "searchShudan",
+        "parserID": "DOM"
+      },
+      "searchBook": {
+        "actionID": "searchBook",
+        "parserID": "DOM"
+      },
+      "chapterList": {
+        "actionID": "chapterList",
+        "parserID": "DOM"
+      }
+    },
+    "bookWorldTemplateDOM": {
+      "actionID": "bookWorld",
+      "parserID": "DOM"
+    },
+    "bookWorldTemplateJS": {
+      "actionID": "bookWorld",
+      "parserID": "JS"
+    },
+    "shudanListTemplateDOM": {
+      "actionID": "shudanList",
+      "parserID": "DOM"
+    },
+    "shudanListTemplateJS": {
+      "actionID": "shudanList",
+      "parserID": "JS"
+    },
+    "baseModelTemplateJS": {
+      "chapterContent": {
+        "actionID": "chapterContent",
+        "parserID": "JS"
+      },
+      "enable": "1",
+      "shupingList": {
+        "actionID": "shupingList",
+        "parserID": "JS"
+      },
+      "bookDetail": {
+        "actionID": "bookDetail",
+        "parserID": "JS"
+      },
+      "shudanList": {},
+      "bookWorld": {},
+      "relatedWord": {
+        "actionID": "relatedWord",
+        "parserID": "JS"
+      },
+      "miniAppVersion": "2.52.0",
+      "shudanDetail": {
+        "actionID": "shudanDetail",
+        "parserID": "JS"
+      },
+      "shupingHome": {
+        "actionID": "shupingHome",
+        "parserID": "JS"
+      },
+      "searchShudan": {
+        "actionID": "searchShudan",
+        "parserID": "JS"
+      },
+      "searchBook": {
+        "actionID": "searchBook",
+        "parserID": "JS"
+      },
+      "chapterList": {
+        "actionID": "chapterList",
+        "parserID": "JS"
+      }
+    }
+  },
+  "sourceModelSyncConfig": {
+    "findXbsLink": {
+      "responseJavascript": "function functionName(config, params, resStr)\n{\n\tvar list = [];\n\n\tlet host = '';\n\tvar regHost = /(https?:\\/\\/[^/]+)\\//i;\n\tif(tem=regHost.exec(params.responseUrl))\n\t\thost=tem[1];\n\n\n\tvar reg1 = /(http[^\"<> ]+?.xbs).*?/gim;\n    \twhile(tem=reg1.exec(resStr)) {\n\t\tlist.push(tem[1]);\n\t}\n\n\n\tvar reg2 = /href=\"(.*?.xbs)\"/gim;\n    \twhile(tem=reg2.exec(resStr)) {\n\t\tlet url = tem[1];\n\t\tif(url.indexOf('http')!=0){\n\t\t\tif(url.indexOf('/')!=0)\n\t\t\t\turl = host + '/' + url;\n\t\t\telse\n\t\t\t\turl = host + url;\n\t\t}\n\t\tlist.push(url);\n\t}\n\n\n\treturn list;\n}",
+      "validConfig": "",
+      "actionID": "findXbsLink",
+      "responseFunction": "functionName",
+      "requestFunction": "functionName",
+      "requestJavascript": "function functionName(config, params) {\n\treturn {\"url\":params.url, \"forbidCookie\":true};\n}",
+      "parserID": "JS"
+    },
+    "queryXbsFile": {
+      "validConfig": "",
+      "requestJavascript": "function functionName(config, params) \n{\n\tvar url = params.url;\n\tif(url.indexOf(\"github.com\")>0 || url.indexOf(\"gitee.com\")>0){\n\t\tif(url.indexOf(\"/blob/\")>0)\n\t\t\turl = url.replace(\"/blob/\", \"/raw/\");\n\t}\n\treturn {\"url\":url, \"forbidCookie\":true};\n}",
+      "actionID": "queryXbsFile",
+      "requestFunction": "functionName",
+      "responseFormatType": "json",
+      "parserID": "JS",
+      "responseDecryptType": "encryptType1"
+    }
+  },
+  "textReaderTheme": {
+    "dark": {
+      "content": "147,151,158",
+      "header": "109,113,121",
+      "bg": "22"
+    },
+    "colors": [
+      "255",
+      "225",
+      "200",
+      "175",
+      "150",
+      "125",
+      "100",
+      "75",
+      "50",
+      "25",
+      "0"
+    ],
+    "chun": [
+      {
+        "content": "38",
+        "bg": "247",
+        "header": "153",
+        "themeId": "100"
+      },
+      {
+        "content": "60,59,57",
+        "bg": "240,236,226",
+        "header": "167,164,157",
+        "themeId": "101"
+      },
+      {
+        "content": "57,54,48",
+        "bg": "226,215,191",
+        "header": "158,150,134",
+        "themeId": "102"
+      },
+      {
+        "content": "55,53,49",
+        "bg": "218,211,197",
+        "header": "152,147,138",
+        "themeId": "103"
+      },
+      {
+        "content": "138,112,98",
+        "bg": "0",
+        "header": "97,79,69",
+        "themeId": "104"
+      },
+      {
+        "content": "38",
+        "bg": "224,220,194",
+        "header": "164,159,135",
+        "themeId": "105"
+      },
+      {
+        "content": "38",
+        "bg": "206,220,187",
+        "header": "151,160,135",
+        "themeId": "106"
+      },
+      {
+        "content": "52,59,52",
+        "bg": "207,235,206",
+        "header": "144,164,144",
+        "themeId": "107"
+      },
+      {
+        "content": "156,167,164",
+        "bg": "59,80,75",
+        "header": "118,133,129",
+        "themeId": "108"
+      },
+      {
+        "content": "149,156,153",
+        "bg": "44,59,52",
+        "header": "107,118,114",
+        "themeId": "109"
+      },
+      {
+        "content": "148,152,162",
+        "bg": "42,52,70",
+        "header": "106,113,126",
+        "themeId": "110"
+      },
+      {
+        "content": "144,151,160",
+        "bg": "58,63,68",
+        "header": "112,119,128",
+        "themeId": "111"
+      },
+      {
+        "content": "158,148,143",
+        "bg": "70,61,61",
+        "header": "126,114,111",
+        "themeId": "112"
+      },
+      {
+        "content": "170,160,150",
+        "bg": "88,66,48",
+        "header": "138,123,110",
+        "themeId": "113"
+      },
+      {
+        "content": "101,111,120",
+        "bg": "23,31,44",
+        "header": "68,76,90",
+        "themeId": "114"
+      },
+      {
+        "content": "87,102,142",
+        "bg": "205,223,246",
+        "header": "120,137,173",
+        "themeId": "115"
+      },
+      {
+        "content": "131,67,88",
+        "bg": "234,208,204",
+        "header": "162,107,122",
+        "themeId": "116"
+      },
+      {
+        "content": "59,45,62",
+        "bg": "209,185,214",
+        "header": "134,113,143",
+        "themeId": "117"
+      }
+    ],
+    "wenli": [
+      {
+        "themeId": "200",
+        "content": "62",
+        "bg": "249",
+        "header": "176",
+        "img": "theme_bg5",
+        "imgStyle": "2"
+      },
+      {
+        "themeId": "201",
+        "content": "0",
+        "bg": "230",
+        "header": "139",
+        "img": "theme_bg8",
+        "imgStyle": "2"
+      },
+      {
+        "themeId": "202",
+        "content": "58,56,50",
+        "bg": "234,228,201",
+        "header": "163,160,144",
+        "img": "theme_bg1",
+        "imgStyle": "2"
+      },
+      {
+        "themeId": "203",
+        "content": "52,52,43",
+        "bg": "206,210,175",
+        "header": "156,157,140",
+        "img": "theme_bg4",
+        "imgStyle": "2"
+      },
+      {
+        "themeId": "204",
+        "content": "45",
+        "bg": "226,204,169",
+        "header": "135,122,103",
+        "img": "theme_bg7",
+        "imgStyle": "2"
+      },
+      {
+        "themeId": "205",
+        "content": "51,47,42",
+        "bg": "209,194,169",
+        "header": "145,134,117",
+        "img": "theme_bg3",
+        "imgStyle": "2"
+      },
+      {
+        "themeId": "206",
+        "content": "156,158,160",
+        "bg": "59,63,67",
+        "header": "118,121,124",
+        "img": "theme_bg6",
+        "imgStyle": "2"
+      }
+    ],
+    "rmd": [
+      {
+        "themeId": "204",
+        "title": "推荐",
+        "cover": "theme_yangpizhi",
+        "coverS": "theme_yangpizhi_sl"
+      },
+      {
+        "themeId": "200",
+        "title": "默认",
+        "cover": "theme_yanhui",
+        "coverS": "theme_yanhui_sl"
+      },
+      {
+        "themeId": "106",
+        "title": "护眼",
+        "cover": "theme_huyanlv",
+        "coverS": "theme_huyanlv_sl"
+      },
+      {
+        "themeId": "115",
+        "title": "舒适",
+        "cover": "theme_shushi",
+        "coverS": "theme_shushi_sl"
+      },
+      {
+        "cover": "theme_more",
+        "themeId": "299",
+        "title": "更多"
+      }
+    ]
+  },
+  "sourceModelEditableKeys": [
+    {
+      "items": [
+        "sourceName",
+        "sourceUrl",
+        "weight",
+        "sourceType",
+        "desc",
+        "loginUrl",
+        "httpHeaders"
+      ],
+      "title": "基础信息"
+    },
+    {
+      "items": [
+        "searchBook",
+        "bookDetail",
+        "chapterList",
+        "chapterContent",
+        "bookWorld"
+      ],
+      "title": "常用配置"
+    },
+    {
+      "items": [
+        "searchShudan",
+        "shudanList",
+        "shudanDetail",
+        "shupingList",
+        "shupingHome",
+        "relatedWord"
+      ],
+      "title": "更多配置"
+    }
+  ],
+  "domModelKeyInfo": {
+    "testCopyRuleFromSearch": {
+      "_help": "方便书海配置和搜索一样的规则",
+      "cf_selectorname": "copyRuleFromSearch",
+      "kv_title": "从搜索配置中拷贝规则"
+    },
+    "success": {
+      "kv_title": "success规则",
+      "kv_placeHolder": "默认不使用\n当搜索结果为空，但响应数据success时，应该缓存响应数据，下一次遇到同一请求即可读取缓存，可有效减少网络请求次数"
+    },
+    "responseFormatType": {
+      "kv_help": "可在请求信息中动态配置responseFormatType\n默认为空使用普通字符串，可选xml/html/json/data/base64str/filePath",
+      "kv_title": "响应解析方式",
+      "kv_valueList": [
+        {
+          "kv_title": "普通字符串"
+        },
+        {
+          "kv_title": "Base64字符串(base64str)",
+          "kv_value": "base64str"
+        },
+        {
+          "kv_title": "格式化为DOM(html)",
+          "kv_value": "html"
+        },
+        {
+          "kv_title": "格式化为数组/字典(xml)",
+          "kv_value": "xml"
+        },
+        {
+          "kv_title": "格式化为数组/字典(json)",
+          "kv_value": "json"
+        },
+        {
+          "kv_title": "使用原始数据流(data)",
+          "kv_value": "data"
+        },
+        {
+          "kv_title": "存储为文件并返回路径(filePath)",
+          "kv_value": "filePath"
+        }
+      ]
+    },
+    "status": {
+      "kv_title": "状态(status)",
+      "kv_placeHolder": "状态(status)\n返回值为数字时0为连载,1为完本",
+      "kv_titleHeadIndent": "1"
+    },
+    "testConfig": {
+      "kv_title": "测试请求响应",
+      "cf_selectorname": "openLPNetTestCon"
+    },
+    "title": {
+      "kv_title": "标题(title)",
+      "kv_placeHolder": "标题(title)",
+      "kv_titleHeadIndent": "1"
+    },
+    "nextPageUrl": {
+      "kv_title": "下一页地址(nextPageUrl)(需设置maxPage)",
+      "kv_placeHolder": "有分页时使用，必须使用maxPage控制最大页码\n通过params.lastResponse.nextPageUrl获取value\n会自动尝试加host，也可手动尝试params.responseUrl"
+    },
+    "url": {
+      "kv_title": "下一级界面地址(url)",
+      "kv_placeHolder": "下一级界面地址(url)\n例如:\n章节列表界面的下一级是章节内容界面\n书单搜索界面/书单列表界面的下一级是书单详情界面\n书本评论界面/广场界面下一级是是书本评论界面，可一直循环\n\n会自动尝试加host，也可手动尝试params.responseUrl",
+      "kv_titleHeadIndent": "1"
+    },
+    "updateTime": {
+      "kv_title": "最后一章更新时间(updateTime)",
+      "kv_placeHolder": "最后一章更新时间(updateTime)"
+    },
+    "bookName": {
+      "kv_title": "书名(bookName)",
+      "kv_placeHolder": "书名(bookName)",
+      "kv_titleHeadIndent": "1"
+    },
+    "score": {
+      "kv_title": "评分(score)",
+      "kv_placeHolder": "评分(score)",
+      "kv_titleHeadIndent": "1"
+    },
+    "wordCount": {
+      "kv_title": "字数(wordCount)",
+      "kv_placeHolder": "字数(wordCount)",
+      "kv_titleHeadIndent": "1"
+    },
+    "cover": {
+      "kv_title": "图标(cover)",
+      "kv_placeHolder": "图标(cover)\n会自动尝试加host，也可手动尝试params.responseUrl",
+      "kv_titleHeadIndent": "1"
+    },
+    "replyCount": {
+      "kv_title": "回复或跟贴数(replyCount)",
+      "kv_placeHolder": "回复或跟贴数(replyCount)",
+      "kv_titleHeadIndent": "1"
+    },
+    "testRegex": {
+      "kv_title": "测试正则表达式",
+      "cf_controller_class": "LCRegexTestCon"
+    },
+    "JSParser": {
+      "kv_title": "js手动解析",
+      "kv_placeHolder": "默认不使用\n也可与标准规则解析一起使用，示例：\nfunction functionName(config, params, result)\n{\n\t// 返回搜索结果示例：\n\tlet list = []; // list为自定义解析结果\n\treturn {'list':list};\n\n\t// 学习时可返回任意数据，查看里面到底有什么内容(类型日志功能)，例如：\n\treturn {'config':config, 'params':params, 'result':result}; // 需注意，result的内容会变化，在请求信息中result为上一级传入的url或nextPageUrl，在解释响应时result是上一层的解释结果\n}"
+    },
+    "createdTime": {
+      "kv_title": "创建时间(createdTime)",
+      "kv_placeHolder": "创建时间(createdTime)",
+      "kv_titleHeadIndent": "1"
+    },
+    "requestParamsEncode": {
+      "kv_help": "可在请求信息中动态配置requestParamsEncode\nNSStringEncoding枚举值",
+      "kv_title": "请求参数编码方式",
+      "kv_valueList": [
+        {
+          "kv_title": "utf-8"
+        },
+        {
+          "kv_title": "gbk",
+          "kv_value": "2147485234"
+        }
+      ]
+    },
+    "moreKeys": {
+      "kv_title": "moreKeys",
+      "kv_placeHolder": "选填，JSON格式，示例：\n\n{\n\"requestFilters\":\"最新::lasest\\n最热::hot\",\n\"removeHtmlKeys\":[\"bookName\",\"author\"],\n\"skipCount\":6,\n\"pageSize\":30,\n\"maxPage\":1,\n}\n\n注：\nrequestFilters:过滤器，用于书海筛选\nremoveHtmlKeys:需外部删除html标签的key，可删除script内容\n\n章节列表与章节内容有分页时需使用maxPage控制最大分页，其他列表配置(如搜索配置/分类配置)有分页时可使用pageSize/maxPage控制，使用其中一个即可:\npageSize:列表数据每页数量，用于判断是否有更多页\nmaxPage:有分页时需设置最大分页数\n\nskipCount:列表数据忽略数量，类似于xpath position()>6，但数量小于6时忽略",
+      "kv_valueType": "NSDictionary"
+    },
+    "detailUrl": {
+      "kv_title": "书本详情页地址(detailUrl)",
+      "kv_placeHolder": "书本详情页地址(detailUrl)\n会自动尝试加host，也可手动尝试params.responseUrl",
+      "kv_titleHeadIndent": "1"
+    },
+    "responseEncode": {
+      "kv_help": "可在请求信息中动态配置responseEncode\nNSStringEncoding枚举值",
+      "kv_title": "响应编码方式",
+      "kv_valueList": [
+        {
+          "kv_title": "utf-8"
+        },
+        {
+          "kv_title": "简体中文(gb2312)",
+          "kv_value": "2147485232"
+        },
+        {
+          "kv_title": "简体中文(gbk)",
+          "kv_value": "2147485234"
+        }
+      ]
+    },
+    "list": {
+      "kv_title": "列表(list)",
+      "kv_placeHolder": "列表(list)\n返回数组格式时继续下一步item解析，返回字典格式时结束解析"
+    },
+    "lastChapterTitle": {
+      "kv_title": "最后一章标题(lastChapterTitle)",
+      "kv_placeHolder": "最后一章标题(lastChapterTitle)",
+      "kv_titleHeadIndent": "1"
+    },
+    "fromUserCover": {
+      "kv_title": "用户图标(fromUserCover)",
+      "kv_placeHolder": "用户图标(fromUserCover)",
+      "kv_titleHeadIndent": "1"
+    },
+    "fromUserName": {
+      "kv_title": "用户名(fromUserName)",
+      "kv_placeHolder": "用户名(fromUserName)",
+      "kv_titleHeadIndent": "1"
+    },
+    "cat": {
+      "kv_title": "类别(cat)",
+      "kv_placeHolder": "类别(cat)",
+      "kv_titleHeadIndent": "1"
+    },
+    "detail": {
+      "kv_title": "详情(detail)",
+      "kv_placeHolder": "详情(detail)",
+      "kv_titleHeadIndent": "1"
+    },
+    "requestInfo": {
+      "kv_title": "请求信息",
+      "kv_placeHolder": "请求信息，书籍详情/章节列表/章节内容/书单详情等子级配置一般不用填写，会自动从上一级获取url。\n\n\n使用方法1，使用替换规则，可替换的参数有%@result(从上一级获取的地址), %@keyWord, %@pageIndex, %@offset, %@filter，使用示例：\nhttps://www.host.com/search?key=%@keyWord&p=%@pageIndex\n\n\n使用方法2，使用js动态配置，需使用@js:声明，默认js参数有config/params/result，可通过日志功能打印参数内容，使用示例：\n@js:\nlet hp = {};\nhp.key = params.keyWord;\nhp.p = params.pageIndex;\nlet url = 'https://www.host.com/search';\nlet hh = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.163 Safari/535.1', 'Referer':'https://www.baidu.com'};\nreturn {'url':url, 'httpParams':hp, 'httpHeaders':hh};\n\n/*\n常用key有:\n\nurl: 字符串，要请求的url\nPOST: 默认false，使用get请求\nhttpParams: 字典类型，http参数\nhttpHeaders: 字典类型，http请求头\nforbidCookie: 默认false，true时禁用cookie\n\nwebView: 不为空时使用webView请求完整的网页\nwebViewJs: 字符串，webView请求完成后执行的js\nwebViewJsDelay: 正整数，webView完成后延时执行js，默认1秒\nwebViewSkipUrls: 数组，webView要跳过的url，可跳过无关的请求\nsourceRegex: 字符串正则表达式，嗅探资源url\n*/"
+    },
+    "desc": {
+      "kv_title": "简介(desc)",
+      "kv_placeHolder": "简介(desc)",
+      "kv_titleHeadIndent": "1"
+    },
+    "author": {
+      "kv_title": "作者(author)",
+      "kv_placeHolder": "作者(author)",
+      "kv_titleHeadIndent": "1"
+    },
+    "content": {
+      "kv_title": "正文(content)",
+      "kv_placeHolder": "正文(content)"
+    }
+  },
+  "domModelEditableKeys": {
+    "chapterList": [
+      {
+        "items": [
+          "requestInfo"
+        ],
+        "title": "请求信息"
+      },
+      {
+        "items": [
+          "list",
+          "title",
+          "url",
+          "nextPageUrl",
+          "updateTime"
+        ],
+        "title": "响应规则"
+      },
+      {
+        "items": [
+          "requestParamsEncode",
+          "responseEncode",
+          "responseFormatType",
+          "JSParser",
+          "moreKeys"
+        ],
+        "title": "更多配置"
+      },
+      {
+        "items": [
+          "testConfig",
+          "testRegex"
+        ],
+        "title": "测试"
+      }
+    ],
+    "bookDetail": [
+      {
+        "items": [
+          "requestInfo"
+        ],
+        "title": "请求信息"
+      },
+      {
+        "items": [
+          "cover",
+          "desc",
+          "cat",
+          "status",
+          "wordCount",
+          "lastChapterTitle"
+        ],
+        "title": "响应规则"
+      },
+      {
+        "items": [
+          "requestParamsEncode",
+          "responseEncode",
+          "responseFormatType",
+          "JSParser",
+          "moreKeys"
+        ],
+        "title": "更多配置"
+      },
+      {
+        "items": [
+          "testConfig",
+          "testRegex"
+        ],
+        "title": "测试"
+      }
+    ],
+    "relatedWord": [
+      {
+        "items": [
+          "requestInfo"
+        ],
+        "title": "请求信息"
+      },
+      {
+        "items": [
+          "list",
+          "title"
+        ],
+        "title": "响应规则"
+      },
+      {
+        "items": [
+          "requestParamsEncode",
+          "responseEncode",
+          "responseFormatType",
+          "JSParser",
+          "moreKeys"
+        ],
+        "title": "更多配置"
+      },
+      {
+        "items": [
+          "testConfig",
+          "testRegex"
+        ],
+        "title": "测试"
+      }
+    ],
+    "searchShudan": [
+      {
+        "items": [
+          "requestInfo"
+        ],
+        "title": "请求信息"
+      },
+      {
+        "items": [
+          "list",
+          "title",
+          "detail",
+          "cover",
+          "url"
+        ],
+        "title": "响应规则"
+      },
+      {
+        "items": [
+          "requestParamsEncode",
+          "responseEncode",
+          "responseFormatType",
+          "JSParser",
+          "moreKeys"
+        ],
+        "title": "更多配置"
+      },
+      {
+        "items": [
+          "testConfig",
+          "testRegex"
+        ],
+        "title": "测试"
+      }
+    ],
+    "shudanDetail": [
+      {
+        "items": [
+          "requestInfo"
+        ],
+        "title": "请求信息"
+      },
+      {
+        "items": [
+          "list",
+          "detail",
+          "bookName",
+          "author",
+          "cover",
+          "desc",
+          "cat",
+          "status",
+          "wordCount",
+          "lastChapterTitle",
+          "detailUrl"
+        ],
+        "title": "响应规则"
+      },
+      {
+        "items": [
+          "requestParamsEncode",
+          "responseEncode",
+          "responseFormatType",
+          "JSParser",
+          "moreKeys"
+        ],
+        "title": "更多配置"
+      },
+      {
+        "items": [
+          "testConfig",
+          "testRegex"
+        ],
+        "title": "测试"
+      }
+    ],
+    "chapterContent": [
+      {
+        "items": [
+          "requestInfo"
+        ],
+        "title": "请求信息"
+      },
+      {
+        "items": [
+          "content",
+          "nextPageUrl"
+        ],
+        "title": "响应规则"
+      },
+      {
+        "items": [
+          "requestParamsEncode",
+          "responseEncode",
+          "responseFormatType",
+          "JSParser",
+          "moreKeys"
+        ],
+        "title": "更多配置"
+      },
+      {
+        "items": [
+          "testConfig",
+          "testRegex"
+        ],
+        "title": "测试"
+      }
+    ],
+    "shudanList": [
+      {
+        "items": [
+          "requestInfo"
+        ],
+        "title": "请求信息"
+      },
+      {
+        "items": [
+          "list",
+          "title",
+          "detail",
+          "cover",
+          "url"
+        ],
+        "title": "响应规则"
+      },
+      {
+        "items": [
+          "requestParamsEncode",
+          "responseEncode",
+          "responseFormatType",
+          "JSParser",
+          "moreKeys"
+        ],
+        "title": "更多配置"
+      },
+      {
+        "items": [
+          "testConfig",
+          "testRegex"
+        ],
+        "title": "测试"
+      }
+    ],
+    "shupingList": [
+      {
+        "items": [
+          "requestInfo"
+        ],
+        "title": "请求信息"
+      },
+      {
+        "items": [
+          "list",
+          "title",
+          "detail",
+          "replyCount",
+          "createdTime",
+          "fromUserName",
+          "fromUserCover",
+          "score",
+          "url"
+        ],
+        "title": "响应规则"
+      },
+      {
+        "items": [
+          "requestParamsEncode",
+          "responseEncode",
+          "responseFormatType",
+          "JSParser",
+          "moreKeys"
+        ],
+        "title": "更多配置"
+      },
+      {
+        "items": [
+          "testConfig",
+          "testRegex"
+        ],
+        "title": "测试"
+      }
+    ],
+    "shupingHome": [
+      {
+        "items": [
+          "requestInfo"
+        ],
+        "title": "请求信息"
+      },
+      {
+        "items": [
+          "list",
+          "title",
+          "detail",
+          "replyCount",
+          "createdTime",
+          "fromUserName",
+          "fromUserCover",
+          "score",
+          "url"
+        ],
+        "title": "响应规则"
+      },
+      {
+        "items": [
+          "requestParamsEncode",
+          "responseEncode",
+          "responseFormatType",
+          "JSParser",
+          "moreKeys"
+        ],
+        "title": "更多配置"
+      },
+      {
+        "items": [
+          "testConfig",
+          "testRegex"
+        ],
+        "title": "测试"
+      }
+    ],
+    "bookWorld": [
+      {
+        "items": [
+          "requestInfo"
+        ],
+        "title": "请求信息"
+      },
+      {
+        "items": [
+          "list",
+          "bookName",
+          "author",
+          "cover",
+          "desc",
+          "cat",
+          "status",
+          "wordCount",
+          "lastChapterTitle",
+          "detailUrl"
+        ],
+        "title": "响应规则"
+      },
+      {
+        "items": [
+          "requestParamsEncode",
+          "responseEncode",
+          "responseFormatType",
+          "JSParser",
+          "moreKeys"
+        ],
+        "title": "更多配置"
+      },
+      {
+        "items": [
+          "testConfig",
+          "testRegex",
+          "testCopyRuleFromSearch"
+        ],
+        "title": "测试"
+      }
+    ],
+    "searchBook": [
+      {
+        "items": [
+          "requestInfo"
+        ],
+        "title": "请求信息"
+      },
+      {
+        "items": [
+          "list",
+          "bookName",
+          "author",
+          "cover",
+          "desc",
+          "cat",
+          "status",
+          "wordCount",
+          "lastChapterTitle",
+          "detailUrl"
+        ],
+        "title": "响应规则"
+      },
+      {
+        "items": [
+          "requestParamsEncode",
+          "responseEncode",
+          "responseFormatType",
+          "success",
+          "JSParser",
+          "moreKeys"
+        ],
+        "title": "更多配置"
+      },
+      {
+        "items": [
+          "testConfig",
+          "testRegex"
+        ],
+        "title": "测试"
+      }
+    ]
+  },
+  "domModelKeyInfo_inSynchronize": {
+    "success": {
+      "kv_title": "响应success规则(success)",
+      "kv_placeHolder": "默认不使用\n当搜索结果为空，但响应数据success时，应该缓存响应数据，下一次遇到同一请求即可读取缓存，可有效减少网络请求次数"
+    },
+    "responseFormatType": {
+      "kv_title": "响应解析方式(responseFormatType)",
+      "kv_valueList": [
+        {
+          "kv_title": "普通字符串"
+        },
+        {
+          "kv_title": "Base64字符串",
+          "kv_value": "base64str"
+        },
+        {
+          "kv_title": "HTML(格式化为DOM)",
+          "kv_value": "html"
+        },
+        {
+          "kv_title": "XML(格式化为数组/字典)",
+          "kv_value": "xml"
+        },
+        {
+          "kv_title": "JSON(格式化为数组/字典)",
+          "kv_value": "json"
+        },
+        {
+          "kv_title": "NSData(使用原始数据流)",
+          "kv_value": "data"
+        }
+      ]
+    },
+    "status": {
+      "kv_title": "状态(status)",
+      "kv_placeHolder": "状态(status)",
+      "kv_titleHeadIndent": "1"
+    },
+    "testConfig": {
+      "kv_title": "请求数据",
+      "cf_selectorname": "openLPNetTestCon"
+    },
+    "title": {
+      "kv_title": "标题(title)",
+      "kv_placeHolder": "标题(title)",
+      "kv_titleHeadIndent": "1"
+    },
+    "nextPageUrl": {
+      "kv_title": "下一页地址(nextPageUrl)",
+      "kv_placeHolder": "有分页时使用"
+    },
+    "url": {
+      "kv_title": "下一级界面地址(url)",
+      "kv_placeHolder": "下一级界面地址(url)\n例如:\n章节列表界面的下一级是章节内容界面\n书单搜索界面/书单列表界面的下一级是书单详情界面\n书本评论界面/广场界面下一级是是书本评论界面，可一直循环\n\n会自动尝试加host，也可手动尝试params.responseUrl",
+      "kv_titleHeadIndent": "1"
+    },
+    "updateTime": {
+      "kv_title": "最后一章更新时间(updateTime)",
+      "kv_placeHolder": "最后一章更新时间(updateTime)"
+    },
+    "bookName": {
+      "kv_title": "名称(bookName)",
+      "kv_placeHolder": "名称(bookName)",
+      "kv_titleHeadIndent": "1"
+    },
+    "score": {
+      "kv_title": "评分(score)",
+      "kv_placeHolder": "评分(score)",
+      "kv_titleHeadIndent": "1"
+    },
+    "wordCount": {
+      "kv_title": "字数(wordCount)",
+      "kv_placeHolder": "字数(wordCount)",
+      "kv_titleHeadIndent": "1"
+    },
+    "cover": {
+      "kv_title": "图标(cover)",
+      "kv_placeHolder": "图标(cover)\n会自动尝试加host，也可手动尝试params.responseUrl",
+      "kv_titleHeadIndent": "1"
+    },
+    "replyCount": {
+      "kv_title": "回复或跟贴数(replyCount)",
+      "kv_placeHolder": "回复或跟贴数(replyCount)",
+      "kv_titleHeadIndent": "1"
+    },
+    "testRegex": {
+      "kv_title": "测试正则表达式",
+      "cf_controller_class": "LCRegexTestCon"
+    },
+    "JSParser": {
+      "kv_title": "使用js手动解析(JSParser)",
+      "kv_placeHolder": "默认不使用"
+    },
+    "createdTime": {
+      "kv_title": "创建时间(createdTime)",
+      "kv_placeHolder": "创建时间(createdTime)",
+      "kv_titleHeadIndent": "1"
+    },
+    "requestParamsEncode": {
+      "kv_title": "请求参数编码方式(requestParamsEncode)",
+      "kv_valueList": [
+        {
+          "kv_title": "utf-8"
+        },
+        {
+          "kv_title": "gbk",
+          "kv_value": "2147485234"
+        }
+      ]
+    },
+    "moreKeys": {
+      "kv_title": "moreKeys",
+      "kv_placeHolder": "moreKeys，JSON格式",
+      "kv_valueType": "NSDictionary"
+    },
+    "detailUrl": {
+      "kv_title": "目录页地址(detailUrl)",
+      "kv_placeHolder": "目录页地址(detailUrl)\n会自动尝试加host，也可手动尝试params.responseUrl",
+      "kv_titleHeadIndent": "1"
+    },
+    "responseEncode": {
+      "kv_title": "响应编码方式(responseEncode)",
+      "kv_valueList": [
+        {
+          "kv_title": "utf-8"
+        },
+        {
+          "kv_title": "简体中文(gb2312)",
+          "kv_value": "2147485232"
+        },
+        {
+          "kv_title": "简体中文(gbk)",
+          "kv_value": "2147485234"
+        }
+      ]
+    },
+    "list": {
+      "kv_title": "列表(list)",
+      "kv_placeHolder": "列表(list)\n返回数组格式时继续下一步item解析，返回字典格式时结束解析"
+    },
+    "lastChapterTitle": {
+      "kv_title": "最后一章标题(lastChapterTitle)",
+      "kv_placeHolder": "最后一章标题(lastChapterTitle)",
+      "kv_titleHeadIndent": "1"
+    },
+    "fromUserCover": {
+      "kv_title": "用户图标(fromUserCover)",
+      "kv_placeHolder": "用户图标(fromUserCover)",
+      "kv_titleHeadIndent": "1"
+    },
+    "fromUserName": {
+      "kv_title": "用户名(fromUserName)",
+      "kv_placeHolder": "用户名(fromUserName)",
+      "kv_titleHeadIndent": "1"
+    },
+    "cat": {
+      "kv_title": "类别(cat)",
+      "kv_placeHolder": "类别(cat)",
+      "kv_titleHeadIndent": "1"
+    },
+    "detail": {
+      "kv_title": "详情(detail)",
+      "kv_placeHolder": "详情(detail)",
+      "kv_titleHeadIndent": "1"
+    },
+    "requestInfo": {
+      "kv_title": "请求信息",
+      "kv_placeHolder": "请求信息"
+    },
+    "desc": {
+      "kv_title": "简介(desc)",
+      "kv_placeHolder": "简介(desc)",
+      "kv_titleHeadIndent": "1"
+    },
+    "author": {
+      "kv_title": "作者(author)",
+      "kv_placeHolder": "作者(author)",
+      "kv_titleHeadIndent": "1"
+    },
+    "content": {
+      "kv_title": "正文(content)",
+      "kv_placeHolder": "正文(content)"
+    }
+  }
+}

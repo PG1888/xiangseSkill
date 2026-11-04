@@ -67,8 +67,8 @@ Replace every placeholder selector and URL with values proven against the target
 - Each core action: object containing `actionID`, `parserID`, string `requestInfo`, and `responseFormatType`.
 - Core actions: `searchBook`, `bookDetail`, `chapterList`, `chapterContent`.
 - `parserID`: the app schema recognizes `DOM` and `JS`. The bundled validator currently executes `DOM` only; `JS` is reported as unsupported/blocked and cannot receive an automated pipeline pass.
-- `responseFormatType`: one of `""`, `base64str`, `html`, `xml`, `json`, or `data`. Never use `text`.
-- `responseDecryptType`: `""` or `encryptType1` only when verified.
+- `responseFormatType`: one of `""`, `base64str`, `html`, `xml`, `json`, `data`, or `filePath` (writes response bytes to `<Caches>/lpnetcache/<timestamp>` and returns the local file path string, confirmed at `0x1000898d4`). Never use `text`.
+- `responseDecryptType`: `""` or `encryptType1` (standard XXTEA decryption using the built-in 16-byte key from `@"凼褆滿金溡候孞柦地橷旳"`, confirmed at `0x1001023d4`).
 
 The schema whitelist describes app-shaped data, not the validator's full execution ability. Automated live execution currently supports `DOM` with `html` or `json`; other schema-valid response formats remain an incomplete automation case.
 
@@ -129,8 +129,8 @@ JS rules run inside `function functionName(config, params, result) { ... }` (str
 - `params.lastResponse` — last response object (e.g. `params.lastResponse.nextPageUrl`).
 - `params.requestInfo` — current action's requestInfo (verified in an official-exported source: `detailUrl: "@js: return params.requestInfo;"`).
 - `params.requestUrls` — accumulated request URLs during WebView navigation (log string present in the binary).
-- `params.nativeTool` — LCJSTool bridge (`base64EncodeWithData`, `dataByAesDecryptWithBase64StringWithKeyWithIv`, `md5Encode`, `sha1Encode`, `cookieByKey`, `getCache`, `set:cache:`, `readFile`, `unzipFile`, `XPathParserWithSource`, etc.), confirmed via the `LCJSToolExports` JSExport protocol in the modified sample and used by an official-exported source (百度小说). Official unmodified-app availability is not yet proven; do not make it the primary path without an official-app runtime test.
-- `result` — data passed into the action from the previous step.
+- `params.nativeTool` — `LCJSTool` bridge (`log`, `logWithKey`, `stringByObject`, `deviceId`, `deviceIdWithTemplateWithSeparator`, `base64Encode`, `base64EncodeWithData`, `base64Decode`, `md5Encode`, `sha1Encode`, `cookieByKey`, `cookiesByUrl`, `getCache`, `setCache`, `readFile`, `readTxtFile`, `unzipFile`, `unzipFileWithPassword`, `allFilesAtPath`, `dataByAesDecryptWithDataWithKeyWithIv`, `dataByAesDecryptWithBase64StringWithKeyWithIv`, `dataByAesDecryptWithBase64DataWithKeyWithIv`, `XPathParserWithSource`). Confirmed in the official unmodified `StandarReader.app` binary (`0x1000f181c` unconditionally injects `parserParams[@"nativeTool"] = [LCJSTool sharedInstance]`; AES methods use AES-CBC with PKCS7 padding at `0x1000c0dd8`).
+- `result` — data passed into the action from the previous step (`chapterContent` reads `queryInfo.url`; `bookDetail` and `chapterList` read `queryInfo.detailUrl`; `searchShudan`/`shudanDetail`/`shupingList`/`shupingHome` read `queryInfo.id`). If `params.lastResponse.nextPageUrl` is non-empty, `result` becomes `nextPageUrl` — except when `nextPageUrl` starts with `"#"`, which immediately aborts `getRequestInfoForConfig:` and returns `nil` (`0x1000c8d50`) to stop pagination.
 
 **`bookWorld` requestInfo must not reference `config.httpHeaders`.** In the app runtime the `config` object exposed to a category action may lack fields the validator provides; referencing a missing property throws in the JS engine and the request fails (observed as `Request failed: not found (404)` in the app test panel while the validator passed). Return a plain string URL built from `params` only (as every official-exported category action does).
 
@@ -142,11 +142,19 @@ Some sites disable site search entirely (observed: 95txt.com `/search/` returns 
 - Implement the real browsing surface in `bookWorld` categories.
 - The validator fixture/live chain still passes: search returns the category list, detail/catalog/content follow from the first item.
 
-JSONPath fields use the SMJJSONPath syntax (prefix `$`, e.g. `$.data.list`; official samples also use bare keys like `data/novelList` for the `list` expression).
+JSONPath fields support a dual-engine model in `DomModelParser` (`0x1000cbdac` – `0x1000cc3f0`):
+- **Prefix `$` (`SMJJSONPath` engine, 0-based)**: e.g. `$.data.list[0].title`. Uses standard 0-based array indexing.
+- **No `$` prefix (Built-in slash-path engine, 1-based)**: e.g. `data/novelList` or `data/list[1]/title`. Positive array indices are **1-based** (`idx - 1` at `0x1000cc2d8`), negative indices are `count + idx`, and `0` or out-of-bounds falls back to `firstObject`.
 
-## XPath to JS pipe (`||`)
+## XPath/JSONPath splitting (`||` vs `|`) and pipe semantics
 
-A field may combine an XPath/JSONPath source with a JS transform: `"//a/text()||@js:return String(result || '').trim();"`. The selector result is passed in as `result`, and the JS return value becomes the field value. The pipe also accepts a JSONPath base for `json` responses. This pattern is used by every verified source in `tools/verification/` and is the recommended way to normalize whitespace or pick one URL from a concatenated attribute.
+In `DomModelParser` (`divisionRule:withSplit:` at `0x1000ca6d4` and `valueForNode:` at `0x1000caa98`):
+- **Delimiter precedence**: If a rule contains `||`, it is split only by `||`. Otherwise, if it contains `|` AND also contains `@js:`, `@replace:`, or `%@result`, it is split by `|`.
+- **Fallback vs Pipeline**:
+  - Multiple `@path:` (default XPath/JSONPath) segments have **short-circuit OR (fallback)** semantics: subsequent `@path:` segments only run if `result` is still `nil`/empty.
+  - `@replace:` (`replacement@replace:regex` or `prefix%@result`) and `@js:` have **pipeline** semantics: they transform the current `result`. Once `@js:` is encountered, all remaining split segments are joined back into the `@js:` body.
+- A field may combine an XPath/JSONPath source with a JS transform: `"//a/text()||@js:return String(result || '').trim();"`. The selector result is passed in as `result`, and the JS return value becomes the field value.
+- **Search keyword filtering**: In `BookQueryManager.formatCallBackResponse:` (`0x10005f970`), `searchBook` items must have both non-empty `bookName` and `author`, AND either `bookName` or `author` must contain `params.keyWord` (otherwise the item is silently dropped). By contrast, `bookWorld` does not check `keyWord` and defaults missing `author` to `"未知"`.
 
 ## Editor compatibility
 

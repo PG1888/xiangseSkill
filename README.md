@@ -1,11 +1,21 @@
 # xiangseSkill
 
-香色闺阁（StandarReader 2.56.1）书源开发资料仓库，聚焦三件事：
+香色闺阁（StandarReader 2.56.1）书源开发资料仓库，也是「馒头阅读」兼容香色书源的规则基础。聚焦三件事：
 - **AI + Skill 根据网站写书源**（网站 → JSON → 校验 → XBS → 导入 App）
 - 书源格式转换（JSON <-> XBS）
 - Codex 技能（skill）沉淀与实战规则维护
 
 注意：本仓仅服务香色闺阁 2.56.1，不承担安卓阅读/跨客户端兼容目标。
+
+## 馒头阅读：兼容香色书源的 iOS 阅读工具
+
+我们在做一款**兼容香色书源**的阅读工具「馒头阅读」，本仓整理的书源规则与内核分析就是它的兼容基础。有需要的朋友欢迎下载体验、支持一下！
+
+- 安装方式：提供 **自签 IPA**，可自行签名安装
+- 下载地址：<https://cloudmantoua.top/post/hongjian-mtsk>
+- QQ 交流群：**903993166**（扫码加入，反馈问题、交流书源）
+
+<img src="assets/mtsk-qq-group-qr.jpg" alt="馒头阅读 QQ 群二维码（群号 903993166）" width="280">
 
 ## 视频与社群
 
@@ -16,12 +26,6 @@
 公众号二维码：
 
 ![公众号二维码](assets/wechat-official-account-qr.jpg)
-
-- QQ 频道：AppFlex（扫码加入频道，二维码以最新版本为准）
-
-QQ 频道二维码：
-
-![AppFlex QQ 频道二维码](assets/wechat-group-qr.jpg)
 
 ## 目录说明
 
